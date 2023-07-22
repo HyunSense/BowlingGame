@@ -4,10 +4,16 @@ import org.bowling.dto.Frame;
 import org.bowling.service.BowlingService;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.bowling.util.ConsoleUI.*;
+
 
 class ConsoleUITest {
 
     BowlingService bowlingService = new BowlingService();
+
 
     @Test
     void printUI() {
@@ -22,10 +28,13 @@ class ConsoleUITest {
     }
 
     @Test
-    void arrayTest() {
-        int[] ints = new int[2];
-        ints[0] = 1;
-        ints[1] = 2;
+    void scoreBoard() {
+        Frame frame = new Frame();
+        frame.setScore(new int[]{3, 4});
+        List<Frame> frameList = new ArrayList<>();
+        frameList.add(frame);
+
+        printScoreBoard(frameList);
 
     }
 }

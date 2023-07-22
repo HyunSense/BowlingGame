@@ -49,7 +49,6 @@ public class BowlingService {
          frameObj.setTotalScore(totalScore);
          frameList.add(frameObj);
 
-
      }
 
      public void updateTotalScore(int frameCount) {
