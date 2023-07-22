@@ -23,9 +23,10 @@ class BowlingServiceTest {
 
     @Test
     void scoreCheck() {
+        Frame frameObj = new Frame();
         int frame = 1;
         List<Frame> frameList = BowlingService.frameList;
-        bowlingService.getScoreByFrame(frame);
+        bowlingService.getScoreByFrame(frame, frameObj);
         int[] scores = frameList.get(0).getScore();
         Assertions.assertThat(Arrays.stream(scores).sum()).isEqualTo(frameList.get(0).getTotalScore());
 

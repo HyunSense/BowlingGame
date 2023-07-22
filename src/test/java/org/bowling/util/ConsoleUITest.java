@@ -4,7 +4,6 @@ import org.bowling.dto.Frame;
 import org.bowling.service.BowlingService;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 class ConsoleUITest {
 
@@ -13,9 +12,11 @@ class ConsoleUITest {
     @Test
     void printUI() {
 
-        for (int i = 0; i <= 10; i++) {
 
-           bowlingService.getScoreByFrame(i + 1);
+        for (int i = 1; i <= 10; i++) {
+
+            Frame frameObj = new Frame();
+            bowlingService.getScoreByFrame(i, frameObj);
 
         }
     }

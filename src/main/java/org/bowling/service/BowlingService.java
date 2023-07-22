@@ -13,13 +13,10 @@ public class BowlingService {
     private static final int COUNT = 2;
     public static List<Frame> frameList = new ArrayList<>();
 
-
-
-     public void getScoreByFrame(int frame) {
+     public void getScoreByFrame(int frame, Frame frameObj) {
 
          printStartFrame(frame);
 
-         Frame frameObj = new Frame();
          int[] scores = new int[COUNT];
 
          int pin = 10;
@@ -42,17 +39,16 @@ public class BowlingService {
 
              if (score != 0 && totalScore == 10) {
                  frameObj.setBonusCheck(Bonus.SPARE);
-
              }
-
-             printBonusUi(frameObj);
          }
+
+         printBonusUi(frameObj);
+         printEndFrame(frame);
 
          frameObj.setScore(scores);
          frameObj.setTotalScore(totalScore);
          frameList.add(frameObj);
 
-         printEndFrame(frame);
 
      }
 
