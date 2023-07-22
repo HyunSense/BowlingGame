@@ -35,7 +35,6 @@ public class Frame {
 
     public void setScore(int[] score) {
         this.score = score;
-        this.totalScore = Arrays.stream(score).sum();
     }
 
     public void setTotalScore(int totalScore) {
