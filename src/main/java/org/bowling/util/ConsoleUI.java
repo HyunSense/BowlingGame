@@ -36,7 +36,7 @@ public class ConsoleUI {
     public static void printScoreBoard(List<Frame> frameList) {
 
         for (int i = 1; i < MAX_FRAME+1; i++) {
-            System.out.print("   ["+ i +"]  ");
+            System.out.print("    ["+ i +"]   ");
         }
 
         System.out.println();
@@ -44,11 +44,11 @@ public class ConsoleUI {
         for (int i = 0; i < MAX_FRAME; i++) {
 
             if (i == 0)
-                System.out.print("┏━━━┳━━━┳");
+                System.out.print("┏━━━━┳━━━━┳");
             else if (i == MAX_FRAME - 1) {
-                System.out.print("━━━┳━━━┓");
+                System.out.print("━━━━┳━━━━┓");
             } else {
-                System.out.print("━━━┳━━━┳");
+                System.out.print("━━━━┳━━━━┳");
             }
 
         }
@@ -58,9 +58,10 @@ public class ConsoleUI {
         for (int i = 0; i < MAX_FRAME; i++) {
 
             if (i == 0) {
-                System.out.print("┃ " + frameList.get(0).getScore()[0] + " ┃ " + frameList.get(0).getScore()[1] + " ┃");
+                System.out.printf("┃ %-2s ┃" +  " %-2s ┃", frameList.get(0).getScore()[0],frameList.get(0).getScore()[1]);
+
             } else {
-                System.out.print(" " + frameList.get(0).getScore()[0] + " ┃ " + frameList.get(0).getScore()[1] + " ┃");
+                System.out.printf(" %-2s ┃ %-2s ┃",  frameList.get(0).getScore()[0], frameList.get(0).getScore()[1]);
             }
         }
 
@@ -68,9 +69,9 @@ public class ConsoleUI {
 
         for (int i = 0; i < MAX_FRAME; i++) {
             if (i == 0) {
-                System.out.print("┣━━━┻━━━╋");
+                System.out.print("┣━━━━┻━━━━╋");
             } else {
-                System.out.print("━━━┻━━━┫");
+                System.out.print("━━━━┻━━━━┫");
             }
         }
 
@@ -78,9 +79,9 @@ public class ConsoleUI {
 
         for (int i = 0; i < MAX_FRAME; i++) {
             if (i == 0) {
-                System.out.print("┃   " + frameList.get(0).getTotalScore() + "   ┃");
+                System.out.printf("┃   %-3s   ┃", frameList.get(0).getTotalScore());
             } else {
-                System.out.print("   " + frameList.get(0).getTotalScore() + "   ┃");
+                System.out.printf("   %-3s   ┃", + frameList.get(0).getTotalScore());
             }
         }
 
@@ -88,9 +89,9 @@ public class ConsoleUI {
 
         for (int i = 0; i < MAX_FRAME; i++) {
             if (i == 0) {
-                System.out.print("┗━━━━━━━┛");
+                System.out.print("┗━━━━━━━━━┛");
             } else {
-                System.out.print("━━━━━━━┛");
+                System.out.print("━━━━━━━━━┛");
 
             }
         }

@@ -22,19 +22,26 @@ class ConsoleUITest {
         for (int i = 1; i <= 10; i++) {
 
             Frame frameObj = new Frame();
-            bowlingService.getScoreByFrame(i, frameObj);
+//            bowlingService.getScoreByFrame(i, frameObj);
 
         }
     }
 
     @Test
     void scoreBoard() {
-        Frame frame = new Frame();
-        frame.setScore(new int[]{3, 4});
-        List<Frame> frameList = new ArrayList<>();
-        frameList.add(frame);
+//        Frame frame = new Frame();
+//        Frame frame2 = new Frame();
+//        frame.setScore(new int[]{5, 5});
+//        frame2.setScore(new int[]{10, 0});
+//        frame.setTotalScore(10);
+//        frame2.setTotalScore(10);
+//        BowlingService.frameList.add(frame);
+//        BowlingService.frameList.add(frame2);
+        for (int i = 1; i <= 10; i++) {
 
-        printScoreBoard(frameList);
+            bowlingService.getScoreByFrame(i);
+        }
+
 
     }
 }

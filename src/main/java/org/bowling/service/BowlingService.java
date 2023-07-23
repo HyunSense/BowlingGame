@@ -13,9 +13,11 @@ public class BowlingService {
     private static final int COUNT = 2;
     public static List<Frame> frameList = new ArrayList<>();
 
-     public void getScoreByFrame(int frame, Frame frameObj) {
+     public void getScoreByFrame(int frameCount) {
 
-         printStartFrame(frame);
+         Frame frame = new Frame();
+
+         printStartFrame(frameCount);
 
          int[] scores = new int[COUNT];
 
@@ -33,25 +35,30 @@ public class BowlingService {
 
 
              if (score == 10) {
-                 frameObj.setBonusCheck(Bonus.STRIKE);
+                 frame.setBonusCheck(Bonus.STRIKE);
                  break;
              }
 
              if (score != 0 && totalScore == 10) {
-                 frameObj.setBonusCheck(Bonus.SPARE);
+                 frame.setBonusCheck(Bonus.SPARE);
              }
          }
 
-         printBonusUi(frameObj);
-         printEndFrame(frame);
+         printBonusUi(frame);
+         printEndFrame(frameCount);
 
-         frameObj.setScore(scores);
-         frameObj.setTotalScore(totalScore);
-         frameList.add(frameObj);
+         frame.setScore(scores);
+         frame.setTotalScore(totalScore);
+         frameList.add(frame);
+
+         updateTotalScore(frameCount);
+         printScoreBoard(frameList);
 
      }
 
-     public void updateTotalScore(int frameCount) {
+     public int updateTotalScore(int frameCount) {
+
+         int sumTotalScore = 0;
 
          if (frameList.size() > 1) {
              Frame prevFrame = frameList.get(frameCount - 1);
@@ -64,5 +71,12 @@ public class BowlingService {
                  prevFrame.setTotalScore(prevFrame.getTotalScore() + frame.getTotalScore());
              }
          }
+
+         for (Frame frame : frameList) {
+             int totalScore = frame.getTotalScore();
+             sumTotalScore += totalScore;
+         }
+
+         return sumTotalScore;
      }
 }
